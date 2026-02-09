@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float gravity = -9.8f;
     public float jumpForce = 8f;
-    public float mouseSensitivity = 3f;
+    public float mouseSensitivity = 9f;
 
     public Transform cameraTransform;
 
