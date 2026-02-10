@@ -41,22 +41,21 @@ public class PlayerMovement : MonoBehaviour
               )
             : Vector2.zero;
 
-        // ---------- ГОРИЗОНТАЛЬНОЕ ДВИЖЕНИЕ ----------
+        // ---------- ДВИЖЕНИЕ ----------
         Vector3 move = transform.right * input.x + transform.forward * input.y;
         controller.Move(move * speed * Time.deltaTime);
 
-        // ---------- НАДЁЖНАЯ ПРОВЕРКА ЗЕМЛИ (Raycast) ----------
+        // ---------- ПРОВЕРКА ЗЕМЛИ ----------
         bool grounded = Physics.Raycast(
             transform.position,
             Vector3.down,
             controller.height / 2f + 0.15f
         );
 
-        // прижимаем к земле
         if (grounded && velocity.y < 0)
             velocity.y = -2f;
 
-        // ---------- ПРЫЖОК (РАБОТАЕТ НА МЕСТЕ) ----------
+        // ---------- ПРЫЖОК ----------
         if (grounded && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             velocity.y = jumpForce;
@@ -64,8 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
         // ---------- ГРАВИТАЦИЯ ----------
         velocity.y += gravity * Time.deltaTime;
-
-        // ❗ всегда двигаем по Y
         controller.Move(Vector3.up * velocity.y * Time.deltaTime);
     }
 
@@ -83,5 +80,19 @@ public class PlayerMovement : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    // ===============================
+    // 👉 ТОЛКАНИЕ ДВЕРЕЙ / ОБЪЕКТОВ
+    // ===============================
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody rb = hit.collider.attachedRigidbody;
+
+        if (rb == null || rb.isKinematic)
+            return;
+
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        rb.AddForce(pushDir * 4f, ForceMode.Impulse);
     }
 }
