@@ -1409,8 +1409,8 @@ GameObject:
   - component: {fileID: 1737885729}
   - component: {fileID: 1737885728}
   - component: {fileID: 1737885727}
+  - component: {fileID: 1737885726}
   - component: {fileID: 1737885731}
-  - component: {fileID: 1737885732}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1418,6 +1418,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1737885726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737885725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c1f937110e93d4ea56c953997251aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 5
+  gravity: -9.8
+  jumpForce: 8
+  mouseSensitivity: 3
+  cameraTransform: {fileID: 371524323}
 --- !u!136 &1737885727
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1539,18 +1556,12 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1819109443
 GameObject:
-=======
---- !u!114 &1737885732
-MonoBehaviour:
->>>>>>> c7a181b9e9175eb6edc294e443772d12daf8104d
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1819109444}
@@ -1898,19 +1909,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047347620}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
-  m_GameObject: {fileID: 1737885725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c1f937110e93d4ea56c953997251aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 5
-  gravity: -9.8
-  jumpForce: 8
-  mouseSensitivity: 9
-  cameraTransform: {fileID: 371524323}
->>>>>>> c7a181b9e9175eb6edc294e443772d12daf8104d
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
