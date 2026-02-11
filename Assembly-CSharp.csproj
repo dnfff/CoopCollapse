@@ -53,6 +53,7 @@
     <Compile Include="Assets\PlayerInteract.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\PlayerVisualTilt.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
